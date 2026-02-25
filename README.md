@@ -14,7 +14,11 @@ This repository is updated with new scripts and tools daily.
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-22c55e)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-6366f1)
-![Data](https://img.shields.io/badge/Data-Massive.com-f97316)
+[![Data Provider](https://img.shields.io/badge/Data%20Provider-Massive.com-f97316)](https://massive.com)
+
+[![YouTube Live](https://img.shields.io/badge/YouTube-Live%20Stream-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/c/truetradinggroup/live)
+[![X](https://img.shields.io/badge/X-@TrueTradingGrp-000000?logo=x&logoColor=white)](https://x.com/TrueTradingGrp)
+[![Telegram](https://img.shields.io/badge/Telegram-TTG.AI%20Channel-26A5E4?logo=telegram&logoColor=white)](https://t.me/ttgaimari)
 
 Built by **TTG AI LLC** • Used within the workflows of the **TTG AI ecosystem** at **True Trading Group**  
 <a href="https://truetradinggroup.com" target="_blank" rel="noopener noreferrer"><strong>Visit TrueTradingGroup.com</strong></a>
@@ -25,20 +29,12 @@ Built by **TTG AI LLC** • Used within the workflows of the **TTG AI ecosystem*
 
 ## Quick Navigation
 
-- [Community + Data Links](#community--data-links)
 - [Tool Map by Trader Type](#tool-map-by-trader-type)
 - [Trader-Focused Docs](#trader-focused-docs)
 - [Environment Variables](#environment-variables)
 - [Setup + Launch Scripts](#setup--launch-scripts)
 - [Unified Launcher (One Script for Everything)](#unified-launcher-one-script-for-everything)
 - [Detailed Script Breakdown](#detailed-script-breakdown)
-
-## Community + Data Links
-
-[![YouTube Live](https://img.shields.io/badge/YouTube-Live%20Stream-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/c/truetradinggroup/live)
-[![X](https://img.shields.io/badge/X-@TrueTradingGrp-000000?logo=x&logoColor=white)](https://x.com/TrueTradingGrp)
-[![Telegram](https://img.shields.io/badge/Telegram-TTG.AI%20Channel-26A5E4?logo=telegram&logoColor=white)](https://t.me/ttgaimari)
-[![Massive.com](https://img.shields.io/badge/Data%20Provider-Massive.com-f97316)](https://massive.com)
 
 ## Tool Map by Trader Type
 
