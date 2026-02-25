@@ -1,20 +1,20 @@
 <div align="center">
 
 # Quant Tools 2026
-### By True Trading Group
+### By TTG AI LLC
 
 <p>
   <img src="https://truetradinggroup.com/wp-content/uploads/2025/11/ai_icon-2.png" alt="TTG AI logo" width="180" />
 </p>
 
-Battle-tested quantitative trading scripts for real-world market analysis and technical signal development, with native support for Massive.com (formerly Polygon.io).
+Battle-tested quantitative trading scripts for real-world market analysis and technical signal development, with native support for Massive.com (formerly Polygon.io). Battle-tested in True Trading Group by over 11,000 members across 115+ countries.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-22c55e)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-6366f1)
 ![Data](https://img.shields.io/badge/Data-Massive.com-f97316)
 
-Built by **TTG AI LLC** • Used in workflows at **True Trading Group**  
+Built by **TTG AI LLC** • Used within the workflows of the **TTG AI ecosystem** at **True Trading Group**  
 <a href="https://truetradinggroup.com" target="_blank" rel="noopener noreferrer"><strong>Visit TrueTradingGroup.com</strong></a>
 
 </div>
