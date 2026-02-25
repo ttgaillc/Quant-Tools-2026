@@ -4,6 +4,49 @@ Battle-tested quantitative trading scripts for real-world market analysis and te
 
 Built by **TTG AI LLC**. These are some of the tools used by True Trading Group: <a href="https://truetradinggroup.com" target="_blank" rel="noopener noreferrer">TrueTradingGroup.com</a>.
 
+## What Each Script Does (Use Cases by Trader Type)
+
+### `options/top-itm-contracts.py`
+
+What it does:
+- Finds the highest-volume in-the-money (ITM) options for a ticker, with optional expiration filtering.
+
+Use cases:
+- **Scalper**: quickly find the most actively traded ITM contracts for short-term momentum execution.
+- **Day Trader**: compare same-day/near-day ITM volume concentration to confirm directional bias.
+- **Swing Trader**: scan ITM contracts on multi-week expirations for stronger directional exposure.
+- **Investor**: identify liquid ITM contracts for longer-term positioning and stock-replacement ideas.
+
+### `options/top-otm-contracts.py`
+
+What it does:
+- Finds the highest-volume out-of-the-money (OTM) options for a ticker, with optional expiration filtering.
+
+Use cases:
+- **Scalper**: track short-dated speculative flow that can drive fast intraday moves.
+- **Day Trader**: monitor OTM call/put concentration shifts as sentiment and momentum clues.
+- **Swing Trader**: use OTM flow as secondary confirmation around breakouts or event setups.
+- **Investor**: review OTM activity as a sentiment/risk-appetite signal before longer-horizon decisions.
+
+### `stocks/support-resistance.py`
+
+What it does:
+- Pulls OHLC bars and calculates support/resistance levels from local extrema in price action.
+
+Use cases:
+- **Scalper**: map immediate intraday reaction zones for entries, exits, and invalidation.
+- **Day Trader**: define high-probability session levels for breakout/retest and fade setups.
+- **Swing Trader**: mark medium-term structure levels for pullbacks, targets, and stop placement.
+- **Investor**: identify higher-timeframe accumulation/distribution zones for scaling decisions.
+
+### `ttg-cli.py`
+
+What it does:
+- Unified interactive launcher for all tools with guided prompts and navigation.
+
+Use cases:
+- **All trader types**: run scans faster, repeat with same settings, switch ITM/OTM quickly, and test new tickers without re-entering everything.
+
 ## Trader-Focused Docs
 
 - [Support/Resistance Trader Guide](docs/support-resistance-trader-guide.md)
