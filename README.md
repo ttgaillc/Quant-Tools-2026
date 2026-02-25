@@ -4,6 +4,12 @@ Battle-tested quantitative trading scripts for real-world market analysis and te
 
 Built by **TTG AI LLC**. These are some of the tools used by True Trading Group: <a href="https://tradinggroup.com" target="_blank" rel="noopener noreferrer">TradingGroup.com</a>.
 
+## Trader-Focused Docs
+
+- [Support/Resistance Trader Guide](docs/support-resistance-trader-guide.md)
+- [Top ITM Options Trader Guide](docs/top-itm-options-trader-guide.md)
+- [Top OTM Options Trader Guide](docs/top-otm-options-trader-guide.md)
+
 ## Environment Variables
 
 These scripts now require Massive credentials and endpoint from environment variables:
@@ -247,12 +253,6 @@ If you want full OHLC bars in the response:
 ```powershell
 python ".\stocks\support-resistance.py" --ticker AAPL --multiplier 1 --timeframe day --start-date 2026-01-01 --end-date 2026-02-01 --include-data
 ```
-
-## Trader-Focused Docs
-
-- `docs/support-resistance-trader-guide.md`
-- `docs/top-itm-options-trader-guide.md`
-- `docs/top-otm-options-trader-guide.md`
 
 ## Notes
 
