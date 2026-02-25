@@ -11,17 +11,28 @@ MASSIVE_API_KEY = os.getenv("MASSIVE_API_KEY")
 MASSIVE_HTTP_TIMEOUT_SECONDS = int(os.getenv("MASSIVE_HTTP_TIMEOUT_SECONDS", "20"))
 
 
+def color(text, code):
+    if os.getenv("NO_COLOR"):
+        return text
+    return f"\033[{code}m{text}\033[0m"
+
+
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def print_app_header():
     clear_screen()
-    print("=" * 72)
-    print("TOP ITM OPTIONS - INTERACTIVE MODE")
-    print("=" * 72)
-    print(f"MASSIVE_API_BASE_URL: {'set' if MASSIVE_API_BASE_URL else 'missing'}")
-    print(f"MASSIVE_API_KEY: {'set' if MASSIVE_API_KEY else 'missing'}")
+    print(color("=" * 72, "36"))
+    print(color("TOP ITM OPTIONS - INTERACTIVE MODE", "1;36"))
+    print(color("LEARN FASTER. TRADE SMARTER. PROFIT SOONER.", "1;32"))
+    print(color("TrueTradingGroup.com", "36"))
+    print(color("Provided by TTG AI LLC | Tested and used by True Trading Group", "90"))
+    print(color("=" * 72, "36"))
+    base_url_status = color("set", "32") if MASSIVE_API_BASE_URL else color("missing", "31")
+    api_key_status = color("set", "32") if MASSIVE_API_KEY else color("missing", "31")
+    print(f"MASSIVE_API_BASE_URL: {base_url_status}")
+    print(f"MASSIVE_API_KEY: {api_key_status}")
     print("")
 
 
@@ -156,14 +167,18 @@ def parse_args():
     parser.add_argument("--ticker", required=True, help="Underlying ticker, e.g. AAPL")
     parser.add_argument("--expiration-date", required=False, help="Optional expiration date YYYY-MM-DD")
     parser.add_argument("--top-n", type=int, default=2, help="How many contracts to return")
-    parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
+    parser.add_argument(
+        "--pretty",
+        action="store_true",
+        help="Pretty-print JSON output (default behavior; kept for compatibility)",
+    )
     parser.add_argument("--interactive", action="store_true", help="Launch interactive terminal screen")
     return parser.parse_args()
 
 
 def run_interactive():
     print_app_header()
-    ticker = prompt_required("Ticker", default="AAPL")
+    ticker = prompt_required("Enter as single ticker symbol")
     expiration_date = prompt_optional_expiration()
     top_n = prompt_positive_int("Top contracts to return", default=2)
 
@@ -188,7 +203,7 @@ def main():
             expiration_date=args.expiration_date,
             top_n=max(1, args.top_n),
         )
-        print(json.dumps(result, indent=2 if args.pretty else None, default=str))
+        print(json.dumps(result, indent=2, default=str))
         return 0
     except Exception as exc:
         print(json.dumps({"error": str(exc)}), file=sys.stderr)

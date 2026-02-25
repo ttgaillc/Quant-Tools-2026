@@ -4,6 +4,28 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
+print_banner() {
+  local c_reset="" c_cyan="" c_green="" c_gray=""
+  if [[ -z "${NO_COLOR:-}" ]]; then
+    c_reset=$'\033[0m'
+    c_cyan=$'\033[36m'
+    c_green=$'\033[1;32m'
+    c_gray=$'\033[90m'
+  fi
+
+  {
+    echo "${c_cyan}========================================================================${c_reset}"
+    echo "${c_cyan}TTG AI QUANT TOOLS${c_reset}"
+    echo "${c_green}LEARN FASTER. TRADE SMARTER. PROFIT SOONER.${c_reset}"
+    echo "${c_cyan}TrueTradingGroup.com${c_reset}"
+    echo "${c_gray}Provided by TTG AI LLC | Tested and used by True Trading Group${c_reset}"
+    echo "${c_cyan}========================================================================${c_reset}"
+    echo ""
+  } >&2
+}
+
+print_banner
+
 if [[ ! -f ".env" ]]; then
   echo "Missing .env. Copy .env.example to .env and set your values first."
   exit 1

@@ -12,8 +12,21 @@ function Fail {
     exit 1
 }
 
+function Show-Banner {
+    $line = "=" * 72
+    Write-Host $line -ForegroundColor Cyan
+    Write-Host "TTG AI QUANT TOOLS" -ForegroundColor Cyan
+    Write-Host "LEARN FASTER. TRADE SMARTER. PROFIT SOONER." -ForegroundColor Green
+    Write-Host "TrueTradingGroup.com" -ForegroundColor Cyan
+    Write-Host "Provided by TTG AI LLC | Tested and used by True Trading Group" -ForegroundColor DarkGray
+    Write-Host $line -ForegroundColor Cyan
+    Write-Host ""
+}
+
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $scriptDir
+
+Show-Banner
 
 if (-not (Test-Path ".\.env")) {
     Fail "Missing .env. Copy .env.example to .env and set your values first."

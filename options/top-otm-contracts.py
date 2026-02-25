@@ -108,7 +108,11 @@ def parse_args():
     parser.add_argument("--ticker", required=True, help="Underlying ticker, e.g. AAPL")
     parser.add_argument("--expiration-date", required=False, help="Optional expiration date YYYY-MM-DD")
     parser.add_argument("--top-n", type=int, default=2, help="How many contracts to return")
-    parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
+    parser.add_argument(
+        "--pretty",
+        action="store_true",
+        help="Pretty-print JSON output (default behavior; kept for compatibility)",
+    )
     return parser.parse_args()
 
 
@@ -120,7 +124,7 @@ def main():
             expiration_date=args.expiration_date,
             top_n=max(1, args.top_n),
         )
-        print(json.dumps(result, indent=2 if args.pretty else None, default=str))
+        print(json.dumps(result, indent=2, default=str))
         return 0
     except Exception as exc:
         print(json.dumps({"error": str(exc)}), file=sys.stderr)

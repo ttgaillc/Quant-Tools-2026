@@ -37,12 +37,12 @@ Use `/.env.example` as the template and keep real secrets in `/.env`.
 Windows (Cursor PowerShell):
 
 - `.\run-windows.ps1`
-- `.\run-windows.ps1 itm --ticker AAPL --top-n 3 --pretty`
+- `.\run-windows.ps1 itm --ticker AAPL --top-n 3`
 
 macOS/Linux:
 
 - `bash "./run-mac.sh"`
-- `bash "./run-mac.sh" itm --ticker AAPL --top-n 3 --pretty`
+- `bash "./run-mac.sh" itm --ticker AAPL --top-n 3`
 
 Git Bash on Windows:
 
@@ -53,6 +53,7 @@ Git Bash on Windows:
 - Do not hardcode API credentials or secrets in code.
 - Do not commit real `.env` values.
 - Preserve existing CLI flags and JSON response shapes unless explicitly requested.
+- Keep docs aligned with interactive menu updates (`Run this tool again`, `Same settings, different ticker`, and ITM/OTM same-settings switch for options).
 - Keep error behavior consistent: JSON error to stderr and non-zero exit.
 - If dependencies change, update `requirements.txt` and relevant README sections.
 - If behavior or usage changes, update `README.md` examples.

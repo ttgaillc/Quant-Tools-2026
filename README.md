@@ -25,6 +25,8 @@ Copy-Item ".\.env.example" ".\.env"
 
 Then set real values in `.env` and load them into your environment before running scripts.
 
+JSON output is pretty-formatted by default.
+
 ## Setup + Launch Scripts
 
 Use these scripts to create a virtual environment, activate it, install dependencies, and launch `ttg-cli.py`.
@@ -56,11 +58,26 @@ bash "./run-mac.sh"
 You can pass CLI args through either launcher:
 
 ```powershell
-.\run-windows.ps1 itm --ticker AAPL --top-n 3 --pretty
+.\run-windows.ps1 itm --ticker AAPL --top-n 3
 ```
 
 ```bash
-bash "./run-mac.sh" itm --ticker AAPL --top-n 3 --pretty
+bash "./run-mac.sh" itm --ticker AAPL --top-n 3
+```
+
+Optional PowerShell shortcut command (`ttgai-start`) from any terminal:
+
+```powershell
+if (!(Test-Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force | Out-Null }
+Add-Content $PROFILE 'function ttgai-start { param([Parameter(ValueFromRemainingArguments = $true)][string[]]$CliArgs) powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Users\User\Desktop\endpoints\ttg-quant-tools\run-windows.ps1" @CliArgs }'
+. $PROFILE
+```
+
+Then run:
+
+```powershell
+ttgai-start
+ttgai-start otm --ticker SPY --top-n 5
 ```
 
 ## Unified Launcher (One Script for Everything)
@@ -73,12 +90,20 @@ Interactive mode (guided app screen):
 python ".\ttg-cli.py"
 ```
 
+Interactive mode includes:
+
+- Category menu (`Options` or `Stocks`)
+- Tool menu inside each category
+- Post-run navigation (`Run this tool again`, `Same settings, different ticker`, `Go back`, `Exit`)
+- Options quick switch using same inputs (`Run OTM with same settings` / `Run ITM with same settings`)
+- Support/Resistance in-terminal input guide with trading-style presets
+
 Direct command mode (non-interactive):
 
 ```powershell
-python ".\ttg-cli.py" itm --ticker AAPL --expiration-date 2026-03-20 --top-n 3 --pretty
-python ".\ttg-cli.py" otm --ticker AAPL --top-n 5 --pretty
-python ".\ttg-cli.py" support-resistance --ticker AAPL --multiplier 1 --timeframe day --start-date 2026-01-01 --end-date 2026-02-01 --pretty
+python ".\ttg-cli.py" itm --ticker AAPL --expiration-date 2026-03-20 --top-n 3
+python ".\ttg-cli.py" otm --ticker AAPL --top-n 5
+python ".\ttg-cli.py" support-resistance --ticker AAPL --multiplier 1 --timeframe day --start-date 2026-01-01 --end-date 2026-02-01
 ```
 
 You can still run each script individually if preferred.
@@ -107,7 +132,7 @@ CLI arguments:
 - `--ticker` (required): underlying ticker
 - `--expiration-date` (optional): exact expiration to use
 - `--top-n` (optional): number of contracts to return
-- `--pretty` (optional): pretty JSON output
+- `--pretty` (optional): compatibility flag (output is already pretty by default)
 
 Output:
 
@@ -126,7 +151,7 @@ Output:
 Example:
 
 ```powershell
-python ".\options\top-itm-contracts.py" --ticker AAPL --expiration-date 2026-03-20 --top-n 3 --pretty
+python ".\options\top-itm-contracts.py" --ticker AAPL --expiration-date 2026-03-20 --top-n 3
 ```
 
 ---
@@ -151,7 +176,7 @@ CLI arguments:
 - `--ticker` (required)
 - `--expiration-date` (optional)
 - `--top-n` (optional, default `2`)
-- `--pretty` (optional)
+- `--pretty` (optional): compatibility flag (output is already pretty by default)
 
 Output:
 
@@ -160,7 +185,7 @@ Output:
 Example:
 
 ```powershell
-python ".\options\top-otm-contracts.py" --ticker AAPL --top-n 5 --pretty
+python ".\options\top-otm-contracts.py" --ticker AAPL --top-n 5
 ```
 
 ---
@@ -185,7 +210,10 @@ What it does:
 - Extracts close values at those points and returns the top 3 most frequent values for:
   - `support_levels`
   - `resistance_levels`
-- Returns cleaned bar records with:
+- By default, returns only key levels:
+  - `support_levels`
+  - `resistance_levels`
+- Optionally includes cleaned bar records with `--include-data`:
   - `Date`, `t`, `o`, `h`, `l`, `c`, `v`
   - UTC ISO-style `Date` strings (`YYYY-MM-DDTHH:MM:SSZ`)
 
@@ -193,23 +221,36 @@ CLI arguments:
 
 - `--ticker` (required)
 - `--multiplier` (required integer)
-- `--timeframe` (required, such as `minute`, `hour`, `day`, `week`, `month`)
+- `--timeframe` (required, such as `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
 - `--start-date` (required `YYYY-MM-DD`)
 - `--end-date` (required `YYYY-MM-DD`)
-- `--pretty` (optional)
+- `--include-data` (optional): include full OHLC bar list in output (large payload)
+- `--pretty` (optional): compatibility flag (output is already pretty by default)
 
 Output:
 
 - JSON with:
-  - `data[]` OHLC bars
   - `support_levels`
   - `resistance_levels`
+- Plus `data[]` OHLC bars only when `--include-data` is passed
 
 Example:
 
 ```powershell
-python ".\stocks\support-resistance.py" --ticker AAPL --multiplier 1 --timeframe day --start-date 2026-01-01 --end-date 2026-02-01 --pretty
+python ".\stocks\support-resistance.py" --ticker AAPL --multiplier 1 --timeframe day --start-date 2026-01-01 --end-date 2026-02-01
 ```
+
+If you want full OHLC bars in the response:
+
+```powershell
+python ".\stocks\support-resistance.py" --ticker AAPL --multiplier 1 --timeframe day --start-date 2026-01-01 --end-date 2026-02-01 --include-data
+```
+
+## Trader-Focused Docs
+
+- `docs/support-resistance-trader-guide.md`
+- `docs/top-itm-options-trader-guide.md`
+- `docs/top-otm-options-trader-guide.md`
 
 ## Notes
 
