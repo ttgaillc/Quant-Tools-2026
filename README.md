@@ -2,6 +2,8 @@
 
 Battle-tested quantitative trading scripts for real-world market analysis and technical signal development, with native support for Massive.com (formerly Polygon.io) and seamless integration into AI agent frameworks and large language models.
 
+Built by **TTG AI LLC**. These are some of the tools used by True Trading Group: <a href="https://tradinggroup.com" target="_blank" rel="noopener noreferrer">TradingGroup.com</a>.
+
 ## Environment Variables
 
 These scripts now require Massive credentials and endpoint from environment variables:
