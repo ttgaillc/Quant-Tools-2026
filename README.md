@@ -1,51 +1,43 @@
-# Quant Tools 2026 by True Trading Group
+<div align="center">
 
-Battle-tested quantitative trading scripts for real-world market analysis and technical signal development, with native support for Massive.com (formerly Polygon.io) and seamless integration into AI agent frameworks and large language models.
+# Quant Tools 2026
+### By True Trading Group
 
-Built by **TTG AI LLC**. These are some of the tools used by True Trading Group: <a href="https://truetradinggroup.com" target="_blank" rel="noopener noreferrer">TrueTradingGroup.com</a>.
+<p>
+  <img src="https://truetradinggroup.com/wp-content/uploads/2025/11/ai_icon-2.png" alt="TTG AI logo" width="180" />
+</p>
 
-## What Each Script Does (Use Cases by Trader Type)
+Battle-tested quantitative trading scripts for real-world market analysis and technical signal development, with native support for Massive.com (formerly Polygon.io).
 
-### `options/top-itm-contracts.py`
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-22c55e)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-6366f1)
+![Data](https://img.shields.io/badge/Data-Massive.com-f97316)
 
-What it does:
-- Finds the highest-volume in-the-money (ITM) options for a ticker, with optional expiration filtering.
+Built by **TTG AI LLC** • Used in workflows at **True Trading Group**  
+<a href="https://truetradinggroup.com" target="_blank" rel="noopener noreferrer"><strong>Visit TrueTradingGroup.com</strong></a>
 
-Use cases:
-- **Scalper**: quickly find the most actively traded ITM contracts for short-term momentum execution.
-- **Day Trader**: compare same-day/near-day ITM volume concentration to confirm directional bias.
-- **Swing Trader**: scan ITM contracts on multi-week expirations for stronger directional exposure.
-- **Investor**: identify liquid ITM contracts for longer-term positioning and stock-replacement ideas.
+</div>
 
-### `options/top-otm-contracts.py`
+---
 
-What it does:
-- Finds the highest-volume out-of-the-money (OTM) options for a ticker, with optional expiration filtering.
+## Quick Navigation
 
-Use cases:
-- **Scalper**: track short-dated speculative flow that can drive fast intraday moves.
-- **Day Trader**: monitor OTM call/put concentration shifts as sentiment and momentum clues.
-- **Swing Trader**: use OTM flow as secondary confirmation around breakouts or event setups.
-- **Investor**: review OTM activity as a sentiment/risk-appetite signal before longer-horizon decisions.
+- [Tool Map by Trader Type](#tool-map-by-trader-type)
+- [Trader-Focused Docs](#trader-focused-docs)
+- [Environment Variables](#environment-variables)
+- [Setup + Launch Scripts](#setup--launch-scripts)
+- [Unified Launcher (One Script for Everything)](#unified-launcher-one-script-for-everything)
+- [Detailed Script Breakdown](#detailed-script-breakdown)
 
-### `stocks/support-resistance.py`
+## Tool Map by Trader Type
 
-What it does:
-- Pulls OHLC bars and calculates support/resistance levels from local extrema in price action.
-
-Use cases:
-- **Scalper**: map immediate intraday reaction zones for entries, exits, and invalidation.
-- **Day Trader**: define high-probability session levels for breakout/retest and fade setups.
-- **Swing Trader**: mark medium-term structure levels for pullbacks, targets, and stop placement.
-- **Investor**: identify higher-timeframe accumulation/distribution zones for scaling decisions.
-
-### `ttg-cli.py`
-
-What it does:
-- Unified interactive launcher for all tools with guided prompts and navigation.
-
-Use cases:
-- **All trader types**: run scans faster, repeat with same settings, switch ITM/OTM quickly, and test new tickers without re-entering everything.
+| Script | What it does | Scalper | Day Trader | Swing Trader | Investor |
+| --- | --- | --- | --- | --- | --- |
+| `options/top-itm-contracts.py` | Finds highest-volume ITM options, optionally filtered by expiration | Fast shortlist of active ITM contracts | Confirm near-term directional concentration | Select multi-week ITM candidates | Find liquid ITM contracts for stock-replacement ideas |
+| `options/top-otm-contracts.py` | Finds highest-volume OTM options, optionally filtered by expiration | Track short-dated speculative flow | Monitor call/put concentration shifts | Confirm breakout/event setups | Read market sentiment and risk appetite |
+| `stocks/support-resistance.py` | Calculates support/resistance from OHLC structure | Map immediate reaction zones | Plan session breakout/retest/fade levels | Mark medium-term pullback/target zones | Identify higher-timeframe accumulation/distribution zones |
+| `ttg-cli.py` | Unified interactive launcher with guided prompts and navigation | Run scans quickly | Compare ITM/OTM flow faster | Reuse settings across tickers | Keep analysis workflow consistent |
 
 ## Trader-Focused Docs
 
